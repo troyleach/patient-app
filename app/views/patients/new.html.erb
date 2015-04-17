@@ -1,0 +1,53 @@
+<section>
+
+  <h1>Create a new patient</h1>
+
+  <%= form_tag '/patients' do %>
+
+    <div>
+      <%= label_tag :first_name %>
+      <%= text_field_tag :first_name, @patient.first_name, :placeholder => "First name" %>
+    </div>
+
+    <div>
+      <%= label_tag :last_name %>
+      <%= text_field_tag :last_name , @patient.last_name, :placeholder => "Last name" %>
+    </div>
+
+    <div>
+      <%= label_tag :date_of_birth %>
+      <%= text_field_tag :date_of_birth, @patient.date_of_birth, :placeholder => "dd/mm/year"  %>
+    <div>
+    
+  <br>
+    <%= submit_tag "Add Patient" %>
+
+  <% end %>
+
+</section>
+
+<section>
+
+  <%= form_tag '/patients' do %>
+
+    <div>
+      <%= label_tag :first_name %>
+      <%= text_field_tag :first_name, @patient.first_name, :placeholder => "First name" %>
+    </div>
+
+    <div>
+      <%= label_tag :last_name %>
+      <%= text_field_tag :last_name , @patient.last_name, :placeholder => "Last name" %>
+    </div>
+
+    <div>
+      <%= label_tag :date_of_birth %>
+      <%= text_field_tag :date_of_birth, @patient.date_of_birth, :placeholder => "dd/mm/year"  %>
+    <div>
+    
+  <br>
+    <%= submit_tag "Add Patient" %>
+
+  <% end %>
+
+</section>

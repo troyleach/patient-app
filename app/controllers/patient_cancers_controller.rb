@@ -1,0 +1,2 @@
+class PatientCancersController < ApplicationController
+end
