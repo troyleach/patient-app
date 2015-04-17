@@ -11,23 +11,21 @@ class PatientsController < ApplicationController
   end
 
   def create
+    cancer_list = Cancer.all
     @patient = Patient.create({:first_name => params[:first_name], :last_name => params[:last_name], :date_of_birth => params[:date_of_birth]})
-
-    # @patient_cancer = PatientCancer.create({:patient_id => patient.id})
-
     
-    # puts @product.inspect
-    # if @product.save && @product_category.save
-    #   @new_product = Product.last
-    #   flash[:success] = "This Product added"
-    #   redirect_to "/products/#{@new_product.id}"
-    # else
-    #   flash[:message] = "Something was wrong with your form"
-    #   render "new"
-    # end
+    cancer_object = cancer_list.find_by(:type_of_cancer_id => params[:type_of_cancer_id])
 
-    flash[:success] = "Patient successfully add."
-    redirect_to patients_path 
+    @patient_cancer = PatientCancer.create({:patient_id => @patient.id, :cancer_id => cancer_object.id})
+    
+    if @patient.save && @patient_cancer.save
+      flash[:success] = "Patient successfully added."
+      redirect_to patients_path
+    else
+      flash[:message] = "Something was wrong with your form"
+      render "new"
+    end
+
   end
 
   def update
