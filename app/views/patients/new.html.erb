@@ -1,53 +1,86 @@
-<section>
+<div ng-app="app">
+  <div ng-controller="patientCtrl" ng-init="setup()">
 
-  <h1>Create a new patient</h1>
 
-  <%= form_tag '/patients' do %>
 
-    <div>
-      <%= label_tag :first_name %>
-      <%= text_field_tag :first_name, @patient.first_name, :placeholder => "First name" %>
-    </div>
+    <section class="section_one">
+      <h1>Create a new patient</h1>
+    </section>
 
-    <div>
-      <%= label_tag :last_name %>
-      <%= text_field_tag :last_name , @patient.last_name, :placeholder => "Last name" %>
-    </div>
+    <section class="section_two">
 
-    <div>
-      <%= label_tag :date_of_birth %>
-      <%= text_field_tag :date_of_birth, @patient.date_of_birth, :placeholder => "dd/mm/year"  %>
-    <div>
+    <%= form_tag '/patients' do %>
+
+      <div>
+        <%= label_tag :first_name, nil, class: 'description' %>
+        <%= text_field_tag :first_name, @patient.first_name, :placeholder => "First name", class: 'text_box' %>
+      </div>
+
+      <div>
+        <%= label_tag :last_name, nil, class: 'description' %>
+        <%= text_field_tag :last_name, nil, :placeholder => "Last name", class: 'text_box' %>
+      </div>
+
+      <div>
+        <%= label_tag :date_of_birth, nil, class: 'description' %>
+        <%= text_field_tag :date_of_birth, nil, :placeholder => "year/mm/dd", class: 'text_box'  %>
+      <div>
+      
+    <br>
+
+      <div>
+        <%= label_tag :type_of_cancer_id, nil, class: 'description' %>
+        <%= text_field_tag :type_of_cancer_id, nil, :placeholder => "Type of cancer", class: 'text_box' %>
+      </div>
+
+      <div>
+        <%= label_tag :date_of_diagnosis, nil, class: 'description' %>
+        <%= text_field_tag :date_of_diagnosis, nil, :placeholder => "year/mm/dd", class: 'text_box' %>
+      </div>
+      </section>
+  
+      <section class="section_three">
+        <%= submit_tag "Add Patient", class: "edit_patient_button" %>
+        <button class="edit_patient_button"><a href="<%= patients_path %>">Patient home</a></button>
+
+      <% end %>
+
+      </section>
     
-  <br>
-    <%= submit_tag "Add Patient" %>
 
-  <% end %>
 
-</section>
 
-<section>
+    <section class="section_four">
 
-  <%= form_tag '/patients' do %>
+    <!-- <label>Filter:</label>
+    <datalist id="cancer.type_of_cancer_id">
+      <option ng-repeat="cancer in autocompleteCancer" value="{{cancer.type_of_cancer_id}}">{{ cancer.type_of_cancer_id }}</option>
+    </datalist>
+    <input list="cancer.type_of_cancer_id" ng-model="nameFilter" ng-keyup="autocompleteCancer(nameFilter)"> -->
 
-    <div>
-      <%= label_tag :first_name %>
-      <%= text_field_tag :first_name, @patient.first_name, :placeholder => "First name" %>
-    </div>
 
-    <div>
-      <%= label_tag :last_name %>
-      <%= text_field_tag :last_name , @patient.last_name, :placeholder => "Last name" %>
-    </div>
 
-    <div>
-      <%= label_tag :date_of_birth %>
-      <%= text_field_tag :date_of_birth, @patient.date_of_birth, :placeholder => "dd/mm/year"  %>
-    <div>
     
-  <br>
-    <%= submit_tag "Add Patient" %>
+    <hr>
 
-  <% end %>
+      <div ng-click="show=!show" class="list_of_cancers">
+        Click to see a list of cancers:
+      </div>
+      <div class="cancer_list row">
+      <div ng-hide="!show" ng-repeat="cancer in cancers" class="col-md-3" >
+      <div class="cancer_data">
+        <table border="0">
+          <tr>
+            <td class="cancer_id">{{ cancer.type_of_cancer_id}}:</td>
+            <td class="cancer_name">{{ cancer.cancer_name}}</td>
+          </tr>
+        </table>  
+      </div>
+      </div>
+      </div>
+      
 
-</section>
+    </section>
+
+  </div><!-- end of controler -->
+</div><!-- end of ng-app -->

@@ -1,3 +1,48 @@
 // Place all the styles related to the patients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.patient_name {
+  color: #fff;
+  font-size: 1.5em;
+  // margin: 0 0 0;
+
+}
+.edit_patient_button {
+  height: 40px;
+  width: auto;
+  font-weight: 200;
+  font-size: 1.2em;
+}
+
+.new_patient_button {
+  height: 40px;
+  width: auto;
+  font-weight: 200;
+  font-size: 1.2em;
+  color: #000000;
+}
+
+.data_header {
+  padding-right: 15px;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.data_text {
+  font-size: 1.5em;
+  font-weight: 200;
+}
+
+
+.cancer_type_header {
+  border-bottom: 1px solid red;
+  padding-right: 15px;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.cancer_type_data {
+  font-size: 1.5em;
+  font-weight: 200;
+}
