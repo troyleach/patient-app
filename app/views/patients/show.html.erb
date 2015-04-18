@@ -1,0 +1,51 @@
+<section class="section_one">
+  <h1><%= @patient.last_name.capitalize %>, <%= @patient.first_name.capitalize %></h1>
+</section>
+
+<section class="section_two">
+  <table>
+    <tr>
+      <td class="data_header">Patients ID number:</td>
+      <td class="data_text"><%= @patient.id %></td>
+    </tr>
+
+    <tr>
+      <td class="data_header">Patients name:</td>
+      <td class="data_text"><%= @patient.first_name.capitalize %> <%= @patient.last_name.capitalize %></td>
+    </tr>
+
+    <tr>
+      <td class="data_header">Patients date of Birth:</td>
+      <td class="data_text"><%= @patient.date_of_birth.inspect %></td>
+    </tr>
+  </table>
+
+<hr>
+
+  <table border="0">
+    <tr>
+      <td class="cancer_type_header">Date of Diagonsos:</td>
+      <td class="cancer_type_header">Cancer ID</td>
+      <td class="cancer_type_header">Type of Cancer</td>
+    </tr>
+
+    <% @patient_cancer.each do |information| %>
+    <tr>
+      <td class="cancer_type_data"><%= information.date_of_diagnosis.inspect %></td>
+      <td class="cancer_type_data"><%= information.cancer.type_of_cancer_id %></td>
+      <td class="cancer_type_data"><%= information.cancer.cancer_name %></td>
+    </tr>
+    <% end %>
+  </table>
+
+</section>
+
+<section class="section_three">
+
+  <button class="edit_patient_button"><a href="<%= edit_patient_path(@patient.id) %>">Patient update</a></button>
+  <button class="edit_patient_button"><a href="<%= patients_path %>">Patient home</a></button>
+
+</section>
+
+
+

@@ -1,0 +1,81 @@
+<h1 class="page_title">Edit <%= @patient.last_name.capitalize %>, <%= @patient.first_name.capitalize %> - Patient ID #<%= @patient.id %></h1>
+
+<div class="edit_container">
+  <div id="form">
+
+    <%= form_tag "/patients/#{@patient.id}", :method => :patch do %>
+
+    <div class="edit_label_tag">
+      <%= label_tag :first_name %>:
+    </div>
+    <div class="edit_text_field_tag">
+      <%= text_field_tag :first_name, @patient.first_name, class: "box_width" %>
+    </div>
+
+    <div class="edit_label_tag">
+      <%= label_tag :last_name %>:
+    </div>
+    <div class="edit_text_field_tag">
+      <%= text_field_tag :last_name, @patient.last_name, class: "box_width" %>
+    </div>
+
+    <div class="edit_label_tag">
+      <%= label_tag :date_of_birth %>:
+    </div>
+    <div class="edit_text_field_tag">
+      <%= text_field_tag :date_of_birth, @patient.date_of_birth, class: "box_width" %>
+    </div>
+
+    <table border="0">
+      <tr>
+        <td class="cancer_type_header_update"><%= label_tag :date_of_diagnosis %>:</td>
+        <td class="cancer_type_header_update"><%= label_tag :type_of_cancer_id %>:</td>
+        <td class="cancer_type_header_update"><%= label_tag :name_of_Cancer %>:</td>
+      </tr>
+
+      <% @patient_cancer.each do |information| %>
+      <tr>
+        <td class="edit_text_field_tag"><%= text_field_tag :date_of_diagnosis, information.date_of_diagnosis %></td>
+        <td class="edit_text_field_tag"><%= text_field_tag :type_of_cancer_id, information.cancer.type_of_cancer_id %></td>
+      </tr>
+
+      <!-- add cancers here -->
+
+      <% end %>
+      
+    </table>
+
+
+    
+    <br>
+    <br>
+    <%= submit_tag "Patient update", class: "edit_patient_button" %>
+    <button class="edit_patient_button"><a href="<%= patients_path %>">Patient home</a></button>
+
+    <% end %>
+  </div>
+</div>
+
+<hr>
+<div ng-app="app">
+  <div ng-controller="patientCtrl" ng-init="setup()">
+
+    <div ng-click="show=!show" class="list_of_cancers">
+      Click to see a list of cancers:
+    </div>
+    <div class="cancer_list row">
+    <div ng-hide="!show" ng-repeat="cancer in cancers" class="col-md-3" >
+    <div class="cancer_data">
+      <table border="0">
+        <tr>
+          <td class="cancer_id">{{ cancer.type_of_cancer_id}}:</td>
+          <td class="cancer_name">{{ cancer.cancer_name}}</td>
+        </tr>
+      </table>  
+    </div>
+    </div>
+    </div>
+
+  </div><!-- end of controler -->
+</div><!-- end of ng-app -->
+

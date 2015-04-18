@@ -1,2 +1,17 @@
-<h1>This is the index page that shows all patients</h1>
-<button><a href="/patients/new">Create a new patient</a></button>
+<section class="section_one">
+  <h1>List of patients</h1>
+</section>
+
+<section class="section_two">
+  <div class="patient_names row">
+    <% @patients.each do |patient| %>
+    <div class="col-md-4">
+      <p class="patient_name"><a href="<%= patient_path(patient.id) %>"><%= patient.last_name.capitalize %> <%= patient.first_name.capitalize %></a></p>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<section class="section_three">
+  <button class="new_patient_button"><a href="<%= new_patient_path %>">Add a new patient</a></button>
+</section>

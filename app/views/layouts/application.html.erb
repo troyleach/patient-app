@@ -8,15 +8,23 @@
 </head>
 <body>
 
-  <% flash.each do |name, message| %>
-    <div class="alert alert-<%= name %> alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <%= message %>
-    </div>
-  <% end %>
+  <header id="header">
+    <img class="logo" src="http://www.cancer-iq.com/pictures/CancerIQ.png" width="200">
+  </header>
+
+  <div id="wrapper">
+    <% flash.each do |name, message| %>
+      <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <%= message %>
+      </div>
+    <% end %>
 
 
-<%= yield %>
-
+    <%= yield %>
+  </div>
+  <footer>
+    
+  </footer>
 </body>
 </html>

@@ -1,0 +1,71 @@
+.body {
+  line-height: 1.2em;
+  color: #ffffff;
+}
+
+#header {
+  height: 140px;
+}
+
+.logo {
+  margin: 27px 0 0 50px;
+}
+
+#wrapper {
+  min-height: 100%;
+  margin-bottom: -296px;
+  background-color: #8b99ab;
+  height: 1200px;
+  padding-left: 50px;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: red;
+}
+
+.img {
+  
+}
+
+hr {
+  width: 100%;
+}
+
+.section_one {
+  padding: 25px 0 25px 0;
+}
+
+.section_three {
+  padding: 25px 0 25px 0;
+}
+
+.list_of_cancers {
+  font-size: 1.5em;
+  border-bottom: 1px solid red;
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.cancer_data {
+  margin-left: 30px;
+}
+
+.cancer_id {
+  font-size: 1.1em;
+  width: 60px;
+}
+
+.cancer_name {
+  font-size: 1.1em;
+}
+
+footer {
+  height: 296px;
+  background: #34495e;
+  color: #fff;
+  padding: 15px 0;
+}
